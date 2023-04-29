@@ -156,7 +156,7 @@ const Chat = () => {
                     <h3>Enter the stuff you want to learn</h3>
                     <div>
                         <textarea
-                            className="chat-input"
+                            className="learn-chat-input"
                             value={inputMsg}
                             onChange={e => setInputMsg(e.target.value)}
                             rows={1}
@@ -164,11 +164,11 @@ const Chat = () => {
                             required
                             placeholder='Enter your text here'
                         ></textarea>
-                        <button onClick={() => handleSend(0)}>Summarize in points</button>
+                        <button onClick={() => handleSend(0)}>List points</button>
                         <button onClick={() => handleSend(1)}>Summarize in sentences</button>
                         <button onClick={() => handleSend(2)}>Generate Question Bank</button>
                         <button onClick={() => handleSend(3)}>Generate Flashcards</button>
-                        <button onClick={() => handleSend(4)}>Explain like I'm a child</button>
+                        <button onClick={() => handleSend(4)}>Explain this</button>
                     </div>
                 </div>
                 <div className='result-section'>

@@ -4,6 +4,7 @@ import './App.css'
 import Landing from './Components/Landing';
 import { Route, Routes } from 'react-router-dom';
 import Navbar from './Components/Navbar';
+import Coach from './Components/Coach/Coach';
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Landing />} />
         <Route path='/learn' element={<Chat />} />
+        <Route path='/coach' element={<Coach />} />
       </Routes>
       {/* <Chat /> */}
     </div>

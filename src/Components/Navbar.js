@@ -15,7 +15,8 @@ const Navbar = () => {
                 </Link>
             </div>
             <div>
-                <button className="nav-settings">Try now</button>
+                <Link to="/learn">Learn</Link>
+                <Link to="/coach">Chat</Link>
             </div>
         </div >
     )

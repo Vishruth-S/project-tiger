@@ -1,9 +1,9 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import useAutosizeTextArea from '../../utils/useAutoTextArea';
 import './Chat.css'
 import Result from '../Result';
 
-const API_KEY = "";
+const API_KEY = "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";
 
 const Chat = () => {
     const [result, setResult] = useState([])
@@ -11,6 +11,7 @@ const Chat = () => {
     const [choice, setChoice] = useState(-1)
     const [loadingMsg, setLoadingMsg] = useState(false)
     const [resultHeading, setResultHeading] = useState("Result")
+    const [temp, setTemp] = useState(0)
 
     const textAreaRef = useRef(null);
     useAutosizeTextArea(textAreaRef.current, inputMsg);
@@ -28,6 +29,10 @@ const Chat = () => {
     //     // fetchData()
     //     // eslint-disable-next-line
     // }, [])
+
+    useEffect(() => {
+        setTemp(temp ^ 1)
+    }, [result])
 
     function parseText(text) {
         const lines = text.trim().split('\n');
@@ -172,7 +177,10 @@ const Chat = () => {
                     <h3>{resultHeading}</h3>
                     <div className='result'>
                         {loadingMsg && <div>tiger IS THINKING ...</div>}
-                        {result && <Result choice={choice} data={result} />}
+                        {temp ?
+                            result && <Result choice={choice} data={result} />
+                            :
+                            result && <Result choice={choice} data={result} />}
                     </div>
                 </div>
             </div>

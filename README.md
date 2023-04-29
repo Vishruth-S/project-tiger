@@ -1,4 +1,4 @@
-# **<div align="center">Project Tiger by Team VA</div>**  
+# **<div align="center">LearnByte by Team VA</div>**  
 <div align="center">A Project made for Hack Solstice, 2023</div>
 
 ## Project Description

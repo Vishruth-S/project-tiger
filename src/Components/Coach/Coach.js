@@ -24,7 +24,7 @@ const Coach = () => {
 
         const systemMessage = {
             role: "system",
-            content: "Read the following Content Carefully. " + textData + " .Now answer any doubts that I will ask you."
+            content: "Read the following Content Carefully. " + textData + " .Now answer any doubts that I will ask you. You must only answer questions that are relevant to the content I provided."
         }
 
         const apiRequestBody = {

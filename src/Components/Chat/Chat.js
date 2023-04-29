@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { BsSend } from "react-icons/bs";
 import useAutosizeTextArea from '../../utils/useAutoTextArea';
 import './Chat.css'
-import ChatMessage from './ChatMessage';
 import Result from '../Result';
 
 const API_KEY = "";
@@ -10,7 +8,7 @@ const API_KEY = "";
 const Chat = () => {
     const [result, setResult] = useState([])
     const [inputMsg, setInputMsg] = useState("")
-    const [choice, setChoice] = useState(0)
+    const [choice, setChoice] = useState(-1)
     const [loadingMsg, setLoadingMsg] = useState(false)
 
     const textAreaRef = useRef(null);
@@ -35,9 +33,9 @@ const Chat = () => {
         console.log(ures)
         if (choice === 0) {
             let res = ures.split('*')
-            setResult(res)
+            setResult(res.slice(1))
         } else if (choice == 2) {
-            const regex = /Question: (.+?)[\r\n]+Answer: (.+?)(?=(?:[\r\n]+Question: )|$)/gs;
+            const regex = /Question: (.+?)(?:\r?\n)?Answer: (.+?)(?=(?:\r?\nQuestion: )|\r?\n?$)/gs
             const matches = [...ures.matchAll(regex)];
             const res = matches.map(match => {
                 return {
@@ -45,10 +43,9 @@ const Chat = () => {
                     answer: match[2].trim()
                 }
             });
-            console.log("Array", res)
             setResult(res)
         } else {
-            setResult(ures)
+            setResult([ures])
         }
     }
 
@@ -62,18 +59,23 @@ const Chat = () => {
         //     role: "user",
         //     content: inputMsg
         // }
-        let systemContent = ""
+        let systemContent = "I want you to act as a text summarizer. I am preparing for exams and I only want to read the important points. I will give you a text and you have to summarize it. I may also ask you to ask some questions and answers based on the text. Give answers in plain text, not markdown"
+        let inputContent = inputMsg
         switch (ch) {
             case 0:
-                systemContent = "Be a summarizer. Give the summary of the text I enter in bullet points. Each bullet point must begin with a '*'"
+                systemContent += "Give the summary of the text I enter in bullet points. Each bullet point must begin with a '*'"
+                inputContent += "\n. Summarize this in bullet points. Each bullet point must begin with a '*'"
                 break;
             case 1:
-                systemContent = "Be a summarizer. Give the summary of the text I enter in sentences"
+                systemContent += "Give the summary of the text I enter in sentences"
+                inputContent += "\n. Summarize this in sentences"
                 break;
             case 2:
-                systemContent = "Be a summarizer. Make some questions and answers for the text I enter. Each answer must not be more than 3 sentences. The format must be 'Question:' followed by the question and 'Answer:' followed by the answer. Don't add newlines for each question or answer"
+                systemContent += "Make some questions and answers for the text I enter. Each answer must not be more than 3 sentences. The format must be 'Question:' followed by the question and 'Answer:' followed by the answer."
+                inputContent += "\n. Make some questions and answers based on the above text. The format must be 'Question:' followed by the question and 'Answer:' followed by the answer."
                 break;
         }
+
 
         const apiRequestBody = {
             model: "gpt-3.5-turbo",
@@ -82,7 +84,7 @@ const Chat = () => {
                 content: systemContent
             }, {
                 role: "user",
-                content: inputMsg
+                content: inputContent
             }]
         }
 

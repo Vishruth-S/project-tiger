@@ -2,7 +2,8 @@
 <div align="center">A Project made for Hack Solstice, 2023</div>
 
 ### LearnByte
-LearnByte is a web application designed to help students while preparing for exams, especially during last minute prep time. 
+LearnByte is a web application designed to help students while preparing for exams, especially during last minute prep time.    
+Watch the [Demo](https://youtu.be/0ejyU9_C29k)
 
 ## Project Description
 

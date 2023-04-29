@@ -16,7 +16,7 @@ const Result = ({ choice, data }) => {
                             ))}
                         </div>
                     }
-                    {choice === 1 &&
+                    {(choice === 1 || choice === 4) &&
                         <div className='result-container-para'>
                             {data.map((el, id) => (
                                 <p key={id}>{el}</p>

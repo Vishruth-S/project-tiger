@@ -4,8 +4,6 @@ import './Chat.css'
 import Result from '../Result';
 import axios from 'axios'
 
-const API_KEY = "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";
-
 const Chat = () => {
     const [result, setResult] = useState([])
     const [inputMsg, setInputMsg] = useState("")
@@ -87,6 +85,11 @@ const Chat = () => {
                 inputContent += "\n. Make some questions and answers based on the above text. The format must be 'Question:' followed by the question and 'Answer:' followed by the answer."
                 setResultHeading("Flashcards")
                 break;
+            case 4:
+                systemContent += "Explain this as if I'm a child or I'm new to this"
+                inputContent += "\n. Explain this text like I'm a child"
+                setResultHeading("Result")
+                break;
             default:
                 break;
         }
@@ -102,10 +105,9 @@ const Chat = () => {
                 content: inputContent
             }]
         }
-
         await axios.post("https://api.openai.com/v1/chat/completions", apiRequestBody, {
             headers: {
-                "Authorization": "Bearer " + API_KEY,
+                "Authorization": "Bearer " + process.env.REACT_APP_API_KEY,
                 "Content-Type": "application/json"
             }
         }).then(async (data) => {
@@ -136,6 +138,10 @@ const Chat = () => {
         setResult([])
         if (inputMsg === '')
             return;
+        if (inputMsg.length > 8000) {
+            alert("Text must be less than 8000 characters")
+            return;
+        }
         setChoice(ch)
         setLoadingMsg(true)
         await processMessageChatgpt(ch);
@@ -145,10 +151,9 @@ const Chat = () => {
 
     return (
         <div >
-            <h2>Tiger - Your summarizer</h2>
             <div className='main-container'>
                 <div className='user-input-section'>
-                    <h3>Enter your text</h3>
+                    <h3>Enter the stuff you want to learn</h3>
                     <div>
                         <textarea
                             className="chat-input"
@@ -157,18 +162,20 @@ const Chat = () => {
                             rows={1}
                             ref={textAreaRef}
                             required
+                            placeholder='Enter your text here'
                         ></textarea>
-                        <button onClick={() => handleSend(0)}>SUMMARIZE in points</button>
-                        <button onClick={() => handleSend(1)}>SUMMARIZE in sentences</button>
-                        <button onClick={() => handleSend(2)}>Make QA</button>
-                        <button onClick={() => handleSend(3)}>Flashcards</button>
+                        <button onClick={() => handleSend(0)}>Summarize in points</button>
+                        <button onClick={() => handleSend(1)}>Summarize in sentences</button>
+                        <button onClick={() => handleSend(2)}>Generate Question Bank</button>
+                        <button onClick={() => handleSend(3)}>Generate Flashcards</button>
+                        <button onClick={() => handleSend(4)}>Explain like I'm a child</button>
                     </div>
                 </div>
                 <div className='result-section'>
                     <h3>{resultHeading}</h3>
                     {result &&
                         <div className='result'>
-                            {loadingMsg && <div>tiger IS THINKING ...</div>}
+                            {loadingMsg && <div>Loading ...</div>}
                             {result && <Result choice={choice} data={result} />}
                         </div>
                     }

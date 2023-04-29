@@ -15,6 +15,7 @@ The demand for concise and easily digestible information is increasing, particul
 #### **Future Features**
 - Generates possible assignment topics from the given information
 - Monitor student progress and evaluate their learning outcomes
+- Support for images
 
 #### **Screenshots**
 

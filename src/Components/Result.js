@@ -6,7 +6,7 @@ import QandA from './QandA'
 const Result = ({ choice, data }) => {
     return (
         <div >
-            {/* {console.log(data)} */}
+            {console.log("=== data' === ", data)}
             {data && data.length > 0 &&
                 <div >
                     {choice === 0 &&

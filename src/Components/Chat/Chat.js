@@ -1,9 +1,10 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useState } from 'react'
 import useAutosizeTextArea from '../../utils/useAutoTextArea';
 import './Chat.css'
 import Result from '../Result';
+import axios from 'axios'
 
-const API_KEY = "";
+const API_KEY = "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";
 
 const Chat = () => {
     const [result, setResult] = useState([])
@@ -11,7 +12,6 @@ const Chat = () => {
     const [choice, setChoice] = useState(-1)
     const [loadingMsg, setLoadingMsg] = useState(false)
     const [resultHeading, setResultHeading] = useState("Result")
-    const [temp, setTemp] = useState(0)
 
     const textAreaRef = useRef(null);
     useAutosizeTextArea(textAreaRef.current, inputMsg);
@@ -30,9 +30,7 @@ const Chat = () => {
     //     // eslint-disable-next-line
     // }, [])
 
-    useEffect(() => {
-        setTemp(temp ^ 1)
-    }, [result])
+
 
     function parseText(text) {
         const lines = text.trim().split('\n');
@@ -53,25 +51,7 @@ const Chat = () => {
         if (question !== null && answer !== null) {
             parsedData.push({ question, answer });
         }
-        console.log(parsedData)
         return parsedData;
-    }
-
-
-
-
-    const parseResult = (ures) => {
-        console.log(ures)
-        if (choice === 0) {
-            let res = ures.split('*')
-            setResult(res.slice(1))
-        } else if (choice === 2 || choice === 3) {
-            const res = parseText(ures)
-            setResult(res)
-            console.log(res)
-        } else {
-            setResult([ures])
-        }
     }
 
     async function processMessageChatgpt(ch) {
@@ -123,21 +103,32 @@ const Chat = () => {
             }]
         }
 
-        await fetch("https://api.openai.com/v1/chat/completions", {
-            method: "POST",
+        await axios.post("https://api.openai.com/v1/chat/completions", apiRequestBody, {
             headers: {
                 "Authorization": "Bearer " + API_KEY,
                 "Content-Type": "application/json"
-            },
-            body: JSON.stringify(apiRequestBody)
-        }).then((data) => {
-            return data.json()
+            }
         }).then(async (data) => {
-            parseResult(data.choices[0].message.content)
+            if (data) {
+                let ures = data.data.choices[0].message.content
+                let parsedResult = []
+                if (ch === 0) {
+                    let res = ures.split('*').slice(1)
+                    parsedResult = res
+                } else if (ch === 2 || ch === 3) {
+                    const res = parseText(ures)
+                    parsedResult = res
+                } else {
+                    parsedResult = [ures]
+                }
+                setResult(parsedResult)
+            }
 
             // await chrome.storage.local.set({
             //     [`${tabId}messages`]: JSON.stringify(msgs)
             // })
+        }).catch(err => {
+            console.log(err)
         })
     }
 
@@ -175,13 +166,12 @@ const Chat = () => {
                 </div>
                 <div className='result-section'>
                     <h3>{resultHeading}</h3>
-                    <div className='result'>
-                        {loadingMsg && <div>tiger IS THINKING ...</div>}
-                        {temp ?
-                            result && <Result choice={choice} data={result} />
-                            :
-                            result && <Result choice={choice} data={result} />}
-                    </div>
+                    {result &&
+                        <div className='result'>
+                            {loadingMsg && <div>tiger IS THINKING ...</div>}
+                            {result && <Result choice={choice} data={result} />}
+                        </div>
+                    }
                 </div>
             </div>
 

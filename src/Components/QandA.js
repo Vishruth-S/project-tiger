@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
     Accordion,
     AccordionItem,
@@ -10,19 +10,19 @@ import { CgChevronDown } from 'react-icons/cg'
 
 
 const QandA = ({ data }) => {
-    const [expanded, setExpanded] = useState(new Array(data.length).fill(false))
+    // const [expanded, setExpanded] = useState(new Array(data.length).fill(false))
 
-    const handleToggle = (id) => {
-        let cardisps = [...expanded]
-        cardisps[id] = cardisps[id] === true ? false : true;
-        setExpanded(cardisps)
-    }
+    // const handleToggle = (id) => {
+    //     let cardisps = [...expanded]
+    //     cardisps[id] = cardisps[id] === true ? false : true;
+    //     setExpanded(cardisps)
+    // }
 
-    const expandAll = () => {
-        let cardisps = [...expanded]
-        cardisps = cardisps.map(el => true)
-        setExpanded(cardisps)
-    }
+    // const expandAll = () => {
+    //     let cardisps = [...expanded]
+    //     cardisps = cardisps.map(el => true)
+    //     setExpanded(cardisps)
+    // }
 
     return (
         <div>
@@ -33,7 +33,7 @@ const QandA = ({ data }) => {
                     </div> */}
                     <Accordion allowMultipleExpanded>
                         {data.map((el, id) => (
-                            <AccordionItem key={id} expanded={expanded[id].toString()} onClick={() => handleToggle(id)}>
+                            <AccordionItem key={id} >
                                 <AccordionItemHeading className='accordion-item'>
                                     <AccordionItemButton>
                                         <div className='accordion-div'>

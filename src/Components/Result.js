@@ -1,33 +1,32 @@
 import React from 'react'
+import Flashcards from './Flashcards'
+import { BsFillCircleFill } from 'react-icons/bs'
+import QandA from './QandA'
 
 const Result = ({ choice, data }) => {
     return (
-        <div>
-            {console.log(data)}
+        <div >
+            {/* {console.log(data)} */}
             {data && data.length > 0 &&
-                <div>
+                <div >
                     {choice === 0 &&
-                        <ul>
+                        <div className='result-container-para'>
                             {data?.map((res, index) => (
-                                <li key={index}>{res}</li>
+                                <div className='result-points-div' ><span><BsFillCircleFill className='result-point' /></span> <p key={index}>{res}</p></div>
                             ))}
-                        </ul>
+                        </div>
                     }
                     {choice === 1 &&
-                        data.map((el, id) => (
-                            <p key={id}>{el}</p>
-                        ))
+                        <div className='result-container-para'>
+                            {data.map((el, id) => (
+                                <p key={id}>{el}</p>
+                            ))}
+                        </div>
                     }
                     {choice === 2 &&
-                        <ul>
-                            {data?.map((res, index) => (
-                                <li key={index}>
-                                    <p>Question: {res.question}</p>
-                                    <p>Answer: {res.answer}</p>
-                                </li>
-                            ))}
-                        </ul>
+                        <QandA data={data} />
                     }
+                    {choice === 3 && <Flashcards data={data} />}
                 </div>
             }
         </div >

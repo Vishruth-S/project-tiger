@@ -3,7 +3,7 @@ import useAutosizeTextArea from '../../utils/useAutoTextArea';
 import './Chat.css'
 import Result from '../Result';
 
-const API_KEY = "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";
+const API_KEY = "";
 
 const Chat = () => {
     const [result, setResult] = useState([])

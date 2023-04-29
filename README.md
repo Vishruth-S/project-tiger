@@ -19,8 +19,10 @@ The demand for concise and easily digestible information is increasing, particul
 
 #### **Screenshots**
 
-![image](https://user-images.githubusercontent.com/55310756/235302381-51e3e1db-060a-452a-8ce7-26965325d59c.png)
-![image](https://user-images.githubusercontent.com/55310756/235302415-4d814c66-b191-4d27-b715-bd37e8a877a3.png)
+![image](https://user-images.githubusercontent.com/55310756/235322943-e21899e7-ed00-434a-91a7-0867cda34dd7.png)
+![image](https://user-images.githubusercontent.com/55310756/235323045-68543046-ac6d-448b-91d7-6ed64e0119e8.png)
+![image](https://user-images.githubusercontent.com/55310756/235323072-40308e95-952e-44b0-916b-1c9d080dd210.png)
+
 
 
 

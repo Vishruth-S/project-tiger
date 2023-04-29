@@ -16,6 +16,13 @@ The demand for concise and easily digestible information is increasing, particul
 - Generates possible assignment topics from the given information
 - Monitor student progress and evaluate their learning outcomes
 
+#### **Screenshots**
+
+![image](https://user-images.githubusercontent.com/55310756/235302381-51e3e1db-060a-452a-8ce7-26965325d59c.png)
+![image](https://user-images.githubusercontent.com/55310756/235302415-4d814c66-b191-4d27-b715-bd37e8a877a3.png)
+
+
+
 ## Team Members
 ### **Team Name** : Team VA
 1. [Vishruth Subramanian](https://github.com/Vishruth-S)

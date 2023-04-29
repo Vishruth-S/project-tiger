@@ -29,9 +29,8 @@ The demand for concise and easily digestible information is increasing, particul
 ![image](https://user-images.githubusercontent.com/55310756/235326746-b148dee4-8e31-4cee-bdf5-b04a55bd761a.png)
 
 #### **Technologies Used**
-- Artifical Intelligence
-- React
-- HTML, CSS
+LearnByte is an AI application currently powered by the GPT-3.5 model provided by OpenAI. The application is built using React.js, HTML & CSS.   
+
 
 ## Team Members
 ### **Team Name** : Team VA

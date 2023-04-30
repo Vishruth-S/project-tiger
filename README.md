@@ -3,7 +3,8 @@
 
 ### LearnByte
 LearnByte is a web application designed to help students while preparing for exams, especially during last minute prep time.    
-Watch the [Demo](https://youtu.be/0ejyU9_C29k)
+Demo [Link](https://youtu.be/0ejyU9_C29k)  
+Presentation Slides [Link](https://docs.google.com/presentation/d/1J9-4HGBeVmqBfhFqZGkLymPSExDSgV6GzrNWbifw3rM/edit?usp=sharing)
 
 ## Project Description
 

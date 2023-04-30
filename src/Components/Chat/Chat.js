@@ -62,7 +62,7 @@ const Chat = () => {
         //     role: "user",
         //     content: inputMsg
         // }
-        let systemContent = "I want you to act as a text summarizer. I am preparing for exams and I only want to read the important points. I will give you a text and you have to summarize it. I may also ask you to ask some questions and answers based on the text. Give answers in plain text, not markdown"
+        let systemContent = "I want you to act as a text summarizer. I am preparing for exams and I only want to read the important points. I will give you a text and you have to summarize it. I may also ask you to ask some questions and answers based on the text. Give answers in plain text, not markdown."
         let inputContent = inputMsg
         switch (ch) {
             case 0:

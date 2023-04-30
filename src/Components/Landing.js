@@ -2,11 +2,11 @@ import React from 'react'
 import './Landing.css'
 import landing from '../Assets/landing-pic.png'
 import { Link } from 'react-router-dom'
-import { BsRocketTakeoff } from 'react-icons/bs'
-import { CgClapperBoard } from 'react-icons/cg'
-import { FaRegLightbulb } from 'react-icons/fa'
-import { TbFocus2 } from 'react-icons/tb'
-import { SlGraduation } from 'react-icons/sl'
+import { RiFileTextLine} from 'react-icons/ri';
+import { CgClapperBoard } from 'react-icons/cg';
+import { BsStopwatch } from 'react-icons/bs';
+import { AiOutlineCheckCircle } from 'react-icons/ai';
+import { FaChalkboardTeacher } from 'react-icons/fa';
 
 const Landing = () => {
     return (
@@ -24,29 +24,29 @@ const Landing = () => {
                 <h1 className='section-heading'>Features</h1>
                 <div className='uses-container'>
                     <div className='uses-item'>
+                        <RiFileTextLine />
+                        <h3>Summarize</h3>
+                        <p> Condenses textbook data into concise points</p>
+                    </div>
+                    <div className='uses-item'>
+                        <BsStopwatch />
+                        <h3>Efficient</h3>
+                        <p>Saves time by simplifying study prep and exam preparation</p>
+                    </div>
+                    <div className='uses-item'>
                         <CgClapperBoard />
                         <h3>Accessible</h3>
-                        <p>Easily Accessible</p>
+                        <p>Simplified and accessible learning for all backgrounds</p>
                     </div>
                     <div className='uses-item'>
-                        <FaRegLightbulb />
-                        <h3>Smart</h3>
-                        <p>Get Concise points</p>
+                        <FaChalkboardTeacher />
+                        <h3>Tutor</h3>
+                        <p>Ask doubts and improve your understanding</p>
                     </div>
                     <div className='uses-item'>
-                        <BsRocketTakeoff />
-                        <h3>Efficient</h3>
-                        <p>Learn by answering questions</p>
-                    </div>
-                    <div className='uses-item'>
-                        <TbFocus2 />
-                        <h3>Focus</h3>
-                        <p>Ask doubts</p>
-                    </div>
-                    <div className='uses-item'>
-                        <SlGraduation />
-                        <h3>Knowledge</h3>
-                        <p>Personal Tutor</p>
+                        <AiOutlineCheckCircle />
+                        <h3>Assess</h3>
+                        <p> Provides real-time assessment and feedback to track progress and improve understanding</p>
                     </div>
                 </div>
             </div>

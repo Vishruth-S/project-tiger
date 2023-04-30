@@ -29,9 +29,12 @@ body {
 .landing-sub-content {
     text-align: center;
     font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .landing-button {
+    margin: 0px;
     padding: 16px 32px;
     background-color: #05204A;
     border-radius: 42px;
@@ -62,6 +65,9 @@ body {
 .uses-item {
     margin: 20px 20px;
     width: 25%;
+    background-color: #E6E6E6;
+    padding: 20px 0px;
+    border-radius: 8px;
 }
 
 .uses-item svg {

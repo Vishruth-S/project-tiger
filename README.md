@@ -18,10 +18,10 @@ The demand for concise and easily digestible information is increasing, particul
 
 #### **Screenshots**
 
-![image](https://user-images.githubusercontent.com/55310756/235326865-e99dd610-a3c0-45de-8b5d-cf360a69a943.png)
-![image](https://user-images.githubusercontent.com/55310756/235326879-bc63f2ce-8e73-4a2b-8c90-c50a1219bf33.png)
-![image](https://user-images.githubusercontent.com/55310756/235326896-d05a71cb-a44d-41bc-83c1-6025724546d3.png)
-![image](https://user-images.githubusercontent.com/55310756/235326746-b148dee4-8e31-4cee-bdf5-b04a55bd761a.png)
+![1](https://user-images.githubusercontent.com/55310756/235335990-183e0c09-ce81-4642-904e-ecd13df19db4.png)
+![2](https://user-images.githubusercontent.com/55310756/235335993-b0cae944-185f-4ace-82a4-c0a706eb7af5.png)
+![3](https://user-images.githubusercontent.com/55310756/235335994-31ecb2e0-c173-4caa-bb52-ad0f7b67d9f2.png)
+![4](https://user-images.githubusercontent.com/55310756/235335997-5f69572d-8e2c-4913-9847-f8c6f490cfcd.png)
 
 #### **Technologies Used**
 LearnByte is an AI application currently powered by the GPT-3.5 model provided by OpenAI. The application is built using React.js, HTML & CSS.   

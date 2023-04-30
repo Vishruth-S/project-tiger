@@ -16,11 +16,6 @@ The demand for concise and easily digestible information is increasing, particul
 - Provides flashcards as a memorization aid for key concepts and information
 - Comes with a personal tutor chatbot, for any doubts
 
-#### **Future Features**
-- Import pdfs, docs, ppts etc
-- Monitor student progress and evaluate their learning outcomes
-- Support for images
-
 #### **Screenshots**
 
 ![image](https://user-images.githubusercontent.com/55310756/235326865-e99dd610-a3c0-45de-8b5d-cf360a69a943.png)
@@ -31,6 +26,11 @@ The demand for concise and easily digestible information is increasing, particul
 #### **Technologies Used**
 LearnByte is an AI application currently powered by the GPT-3.5 model provided by OpenAI. The application is built using React.js, HTML & CSS.   
 
+
+#### **Future Features**
+- Import pdfs, docs, ppts etc
+- Monitor student progress and evaluate their learning outcomes
+- Support for images
 
 ## Team Members
 ### **Team Name** : Team VA
